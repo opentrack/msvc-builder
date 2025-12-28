@@ -1,0 +1,8 @@
+--- CMakeLists.txt.old	2025-12-27 04:24:00.291511300 +0100
++++ CMakeLists.txt	2025-12-27 04:24:08.881565800 +0100
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.6)
++cmake_minimum_required(VERSION 3.10)
+ PROJECT(TestOscpack)
+ 
+ INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR})

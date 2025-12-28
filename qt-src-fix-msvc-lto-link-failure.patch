@@ -1,0 +1,39 @@
+diff --git src/gui/text/qfontvariableaxis.h src/gui/text/qfontvariableaxis.h
+index ab5fea40222..0eb56ae6569 100644
+--- qtbase/src/gui/text/qfontvariableaxis.h
++++ qtbase/src/gui/text/qfontvariableaxis.h
+@@ -12,7 +12,7 @@
+ QT_BEGIN_NAMESPACE
+
+ class QFontVariableAxisPrivate;
+-QT_DECLARE_QESDP_SPECIALIZATION_DTOR(QFontVariableAxisPrivate)
++QT_DECLARE_QESDP_SPECIALIZATION_DTOR_WITH_EXPORT(QFontVariableAxisPrivate, Q_GUI_EXPORT)
+
+ class QFontVariableAxis
+ {
+diff --git qtmultimedia/src/multimedia/playback/qplaybackoptions.h qtmultimedia/src/multimedia/playback/qplaybackoptions.h
+index a157c7968..8d546a1ba 100644
+--- qtmultimedia/src/multimedia/playback/qplaybackoptions.h
++++ qtmultimedia/src/multimedia/playback/qplaybackoptions.h
+@@ -15,7 +15,7 @@
+ QT_BEGIN_NAMESPACE
+
+ class QPlaybackOptionsPrivate;
+-QT_DECLARE_QESDP_SPECIALIZATION_DTOR(QPlaybackOptionsPrivate)
++QT_DECLARE_QESDP_SPECIALIZATION_DTOR_WITH_EXPORT(QPlaybackOptionsPrivate, Q_MULTIMEDIA_EXPORT)
+
+ class QPlaybackOptions
+ {
+diff --git src/core/api/qwebenginepermission.h src/core/api/qwebenginepermission.h
+index 9a62320bf..6548081a1 100644
+--- qtwebengine/src/core/api/qwebenginepermission.h
++++ qtwebengine/src/core/api/qwebenginepermission.h
+@@ -22,7 +22,7 @@ class QQuickWebEngineViewPrivate;
+ class QQuickWebEngineProfile;
+
+ struct QWebEnginePermissionPrivate;
+-QT_DECLARE_QESDP_SPECIALIZATION_DTOR(QWebEnginePermissionPrivate)
++QT_DECLARE_QESDP_SPECIALIZATION_DTOR_WITH_EXPORT(QWebEnginePermissionPrivate, Q_WEBENGINECORE_EXPORT)
+
+ class QWebEnginePermission
+ {
