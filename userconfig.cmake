@@ -36,6 +36,28 @@ if(CMAKE_SIZEOF_VOID_P GREATER 4)
     setq(SDK_GAMEINPUT "gameinput")
     install(FILES "${SDK_ROOT}/build/onnxruntime-noavx/install/bin/onnxruntime.dll" RENAME "onnxruntime-noavx.dll" DESTINATION "modules")
     install(FILES "${SDK_ROOT}/build/onnxruntime-avx/install/bin/onnxruntime.dll" RENAME "onnxruntime-avx.dll" DESTINATION "modules")
+
+    set(_system_libs
+        msvcp100.dll
+        msvcp110.dll
+        msvcp140.dll
+        msvcp140_1.dll
+        msvcp140_2.dll
+        msvcr100.dll
+        msvcr110.dll
+        msvcrt.dll
+        vcruntime140.dll
+        vcruntime140_1.dll)
+    if("$ENV{WINDIR}" STREQUAL "")
+        set(_windir "c:/windows")
+    else()
+        set(_windir "$ENV{WINDIR}")
+    endif()
+    file(TO_CMAKE_PATH "${_windir}" _windir)
+    foreach(lib ${_system_libs})
+        install(FILES "${_windir}/system32/${lib}" DESTINATION .)
+    endforeach()
+
 else()
     message(FATAL_ERROR "TODO 32-bit")
 endif()
