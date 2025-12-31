@@ -166,9 +166,9 @@ test -d "$src/deps/nonfree"\
 cm2 qt
 build qt
 
-cm1 onnxruntime/cmake onnxruntime-avx \
-   -DFLAGS_C_RELEASE=-arch:AVX -DFLAGS_CXX_RELEASE=-arch:AVX
-build onnxruntime-avx
+#cm1 onnxruntime/cmake onnxruntime-avx \
+#   -DFLAGS_C_RELEASE=-arch:AVX -DFLAGS_CXX_RELEASE=-arch:AVX
+#build onnxruntime-avx
 
 cm1 onnxruntime/cmake onnxruntime-noavx
 build onnxruntime-noavx

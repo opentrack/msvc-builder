@@ -34,8 +34,8 @@ if(CMAKE_SIZEOF_VOID_P GREATER 4)
     setw(ONNXRuntime_DIR "onnxruntime-noavx/install")
     setw(SDK_LIBUSB "libusb")
     setq(SDK_GAMEINPUT "gameinput")
-    install(FILES "${SDK_ROOT}/build/onnxruntime-noavx/install/bin/onnxruntime.dll" RENAME "onnxruntime-noavx.dll" DESTINATION "modules")
-    install(FILES "${SDK_ROOT}/build/onnxruntime-avx/install/bin/onnxruntime.dll" RENAME "onnxruntime-avx.dll" DESTINATION "modules")
+    #install(FILES "${SDK_ROOT}/build/onnxruntime-noavx/install/bin/onnxruntime.dll" RENAME "onnxruntime-noavx.dll" DESTINATION "modules")
+    #install(FILES "${SDK_ROOT}/build/onnxruntime-avx/install/bin/onnxruntime.dll" RENAME "onnxruntime-avx.dll" DESTINATION "modules")
 
     set(_system_libs
         msvcp100.dll
