@@ -16,7 +16,7 @@ selfdir=$(dirname -- "$0")
 
 is_path_absolute "$selfdir" || selfdir="$PWD/$selfdir"
 
-which git cmake ninja patch realpath >/dev/null /dev/null
+which git cmake ninja patch realpath wget unzip >/dev/null
 
 usage() {
     echo "$self [options] DIRECTORY
@@ -170,8 +170,22 @@ build qt
 #   -DFLAGS_C_RELEASE=-arch:AVX -DFLAGS_CXX_RELEASE=-arch:AVX
 #build onnxruntime-avx
 
-cm1 onnxruntime/cmake onnxruntime-noavx
-build onnxruntime-noavx
+#cm1 onnxruntime/cmake onnxruntime-noavx
+#build onnxruntime-noavx
+
+onnxruntime_version=1.23.2
+
+(cd "$build"
+ v=${onnxruntime_version}
+ url=https://github.com/microsoft/onnxruntime/releases/download
+ dir=$build/onnxruntime-win-x64-${v}
+ mkdir -p "$dir"
+ stamp=$dir/.extracted.stamp
+ test -e "${stamp}" || \
+ (set -x
+  (wget -O- "${url}/v${v}/onnxruntime-win-x64-${v}.zip"|unzip -o -)>/dev/null
+  test -f "${dir}/lib/onnxruntime.dll"
+  touch "$stamp"))
 
 cm2 opencv 
 build opencv
@@ -195,7 +209,10 @@ build oscpack all
   cp -fu libusb-1.0.dll libusb-1.0.exp  libusb-1.0.lib  libusb-1.0.pdb "$build/libusb/")
   cp -fu "$src/libusb/libusb/libusb.h" "$build/libusb/")
 
-cm2 opentrack -Wdev -DSDK_ROOT="$basedir" -DOPENTRACK_USERCONFIG="$uc"
+cm2 opentrack -Wdev \
+    -DSDK_ROOT="$basedir" \
+    -DOPENTRACK_USERCONFIG="$uc" \
+    -DONNXRuntime_DIR="$build/onnxruntime-win-x64-${onnxruntime_version}"
 rm -rf "$build/opentrack/debug"
 build opentrack
 mv -fT "$build/opentrack/install/debug" "$build/opentrack/debug"

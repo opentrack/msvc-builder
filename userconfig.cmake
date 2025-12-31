@@ -25,17 +25,13 @@ setq(SDK_HYDRA "SixenseSDK")
 setq(SDK_EYEWARE_BEAM "eyeware-beam-sdk")
 setq(SDK_RIFT_140 "ovr_sdk_win_23.0.0/LibOVR")
 
-set(opentrack-use-onnxruntime-avx-dispatch 1)
 if(CMAKE_SIZEOF_VOID_P GREATER 4)
     setw(Qt6_DIR "qt/install/lib/cmake/Qt6")
     setw(OpenCV_DIR "opencv/install")
     setw(SDK_ARUCO_LIBPATH "aruco/src/aruco.lib")
     setw(SDK_OSCPACK "oscpack")
-    setw(ONNXRuntime_DIR "onnxruntime-noavx/install")
     setw(SDK_LIBUSB "libusb")
     setq(SDK_GAMEINPUT "gameinput")
-    #install(FILES "${SDK_ROOT}/build/onnxruntime-noavx/install/bin/onnxruntime.dll" RENAME "onnxruntime-noavx.dll" DESTINATION "modules")
-    #install(FILES "${SDK_ROOT}/build/onnxruntime-avx/install/bin/onnxruntime.dll" RENAME "onnxruntime-avx.dll" DESTINATION "modules")
 
     set(_system_libs
         msvcp100.dll
