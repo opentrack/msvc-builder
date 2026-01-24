@@ -145,7 +145,7 @@ build()  {
 }
 
 (cd "$src"
- gc qt          git://code.qt.io/qt/qt5.git                     6.10.1
+ gc qt          git://code.qt.io/qt/qt5.git                     6.10.2
  gc onnxruntime https://github.com/microsoft/onnxruntime        v1.23.2
  gc opencv      https://github.com/opencv/opencv                4.x
  gc deps        https://github.com/opentrack/opentrack-depends  master
